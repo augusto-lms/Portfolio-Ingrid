@@ -3,7 +3,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealItems = document.querySelectorAll(
-  ".reveal-group, .reveal-photo, .reveal-background, .reveal-notebook"
+  ".reveal-group, .reveal-photo, .reveal-background"
 );
 
 if (reduceMotion || !("IntersectionObserver" in window)) {

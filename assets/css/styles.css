@@ -81,12 +81,6 @@ h1 em { display: inline-block; margin-top: 12px; color: #e6e0cf; font-weight: 40
 .columns { max-width: 800px; margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
 .columns p { margin: 0; color: #68665c; font-size: 14px; font-weight: 300; line-height: 1.8; }
 
-.notebook { max-width: 1320px; margin: 0 auto 30px; padding: 75px 6vw; display: grid; grid-template-columns: auto 1fr; gap: 5vw; align-items: center; position: relative; overflow: hidden; color: white; background: var(--olive-deep); border-radius: 36px; }
-.notebook-mark { width: 125px; height: 125px; display: grid; place-items: center; position: relative; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; font: italic 37px "Newsreader", serif; }
-.notebook-mark span { position: absolute; top: 12px; right: 7px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; color: var(--olive-deep); background: var(--sand); font: 18px "DM Sans"; }
-.notebook h2 { margin-top: 17px; font-size: clamp(45px, 4.4vw, 68px); line-height: .9; }
-.notebook h2 em { color: #c7c1a8; font-weight: 400; }
-
 footer { max-width: 1320px; margin: 0 auto; padding: 48px 2vw; display: flex; align-items: center; justify-content: space-between; }
 .footer-brand { justify-self: auto; }
 footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; }
@@ -99,7 +93,6 @@ footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform
   .hero-content { padding: 65px 8vw 90px; }
   .vertical-note { display: none; }
   .manifesto { grid-template-columns: 1fr; gap: 50px; padding-block: 100px; }
-  .notebook { margin-inline: 16px; grid-template-columns: auto 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -117,8 +110,6 @@ footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform
   .manifesto { padding: 85px 28px; }
   .manifesto-copy h2 { font-size: 48px; }
   .columns { grid-template-columns: 1fr; gap: 22px; }
-  .notebook { padding: 55px 28px 75px; grid-template-columns: 1fr; gap: 35px; }
-  .notebook-mark { width: 90px; height: 90px; }
   footer { padding-inline: 25px; gap: 30px; align-items: flex-start; flex-direction: column; }
 }
 
@@ -270,11 +261,51 @@ footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform
 .about-content h2 em { color: var(--olive); font-weight: 400; }
 .about-story { max-width: 680px; margin-top: 38px; }
 .about-story p { margin: 0; color: #6d6a60; font-size: 14px; font-weight: 300; line-height: 1.82; }
-.about-story .about-intro { color: #45443c; font-size: 17px; line-height: 1.72; }
 .about-story strong { color: var(--olive-dark); font-weight: 600; background: linear-gradient(transparent 58%, rgba(137,128,95,.18) 0); }
 .about-story p + p { margin-top: 17px; }
 .about-credentials { margin-top: 34px; padding: 19px 0; display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--olive-dark); font-size: 8px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; }
 .about-credentials i { width: 4px; height: 4px; border-radius: 50%; background: var(--olive); }
+.content-purpose {
+  max-width: none;
+  margin: -16px 18px 0;
+  padding: 88px 5vw 125px;
+  display: grid;
+  grid-template-columns: minmax(230px, .68fr) minmax(0, 1.32fr);
+  gap: clamp(45px, 7vw, 95px);
+  align-items: start;
+  background: var(--cream);
+  border-top: 1px solid rgba(137,128,95,.14);
+  border-radius: 34px 34px 0 0;
+}
+.content-purpose > * { max-width: 1320px; }
+.purpose-heading {
+  position: sticky;
+  top: 120px;
+}
+.purpose-heading h2 {
+  margin-top: 22px;
+  font-size: clamp(44px, 4.8vw, 70px);
+  line-height: .95;
+  letter-spacing: -.035em;
+}
+.purpose-heading h2 em {
+  color: var(--olive);
+  font-weight: 400;
+}
+.purpose-story {
+  padding-top: 8px;
+  column-count: 2;
+  column-gap: clamp(28px, 4vw, 55px);
+}
+.purpose-story p {
+  margin: 0;
+  break-inside: avoid;
+  color: #6d6a60;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.82;
+}
+.purpose-story p + p { margin-top: 17px; }
 
 /* Movimento editorial durante o scroll */
 .js .reveal-group > * {
@@ -301,23 +332,25 @@ footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform
 .js .reveal-background { background-color: var(--cream); transition: background-color 1.1s ease; }
 .js .reveal-background.is-visible { background-color: #efebdf; }
 
-.js .reveal-notebook { opacity: 0; transform: scale(.965) translateY(24px); transition: opacity .75s ease, transform 1s cubic-bezier(.2,.75,.2,1); }
-.js .reveal-notebook.is-visible { opacity: 1; transform: scale(1) translateY(0); }
 [data-parallax] { will-change: transform; }
 
 @media (max-width: 900px) {
   .about-section { padding-block: 95px; grid-template-columns: 1fr; }
   .about-visual { min-height: auto; width: min(100%, 500px); margin: 0 auto; padding-bottom: 28px; }
+  .content-purpose { margin-top: 0; grid-template-columns: 1fr; }
+  .purpose-heading { position: static; }
+  .purpose-story { column-count: 1; }
 }
 
 @media (max-width: 520px) {
   .about-background { margin-inline: 10px; border-radius: 26px 26px 0 0; }
   .about-section { padding: 80px 25px 90px; gap: 65px; }
+  .content-purpose { margin-inline: 0; padding: 62px 25px 85px; gap: 32px; border-radius: 26px 26px 0 0; }
+  .purpose-heading h2 { font-size: 48px; }
   .about-photo-slot { width: min(100%, 360px); }
   .about-photo-slot { padding: 18px; }
   .about-stamp { right: 0; bottom: 22px; width: 95px; height: 95px; font-size: 23px; }
   .about-content h2 { font-size: 55px; }
-  .about-story .about-intro { font-size: 15px; }
   .about-credentials { align-items: flex-start; flex-direction: column; gap: 9px; }
   .about-credentials i { display: none; }
 }
@@ -325,7 +358,7 @@ footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  .js .reveal-group > *, .js .reveal-photo, .js .reveal-notebook { opacity: 1; transform: none; clip-path: none; }
+  .js .reveal-group > *, .js .reveal-photo { opacity: 1; transform: none; clip-path: none; }
   .js .reveal-background { background-color: #efebdf; }
   .about-line { transform: scaleX(1); }
   [data-parallax] { transform: none !important; }
