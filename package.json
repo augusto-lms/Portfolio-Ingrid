@@ -1,0 +1,26 @@
+{
+  "name": "site-ingrid-hovsepian",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "studio:dev": "npm --prefix ../studio-blog-ingrid run dev",
+    "studio:deploy": "npm --prefix ../studio-blog-ingrid run deploy",
+    "studio:typegen": "npm --prefix ../studio-blog-ingrid run typegen"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^2.0.2",
+    "next": "^16.1.0",
+    "next-sanity": "^11.6.11",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "typescript": "^5.9.0"
+  }
+}
