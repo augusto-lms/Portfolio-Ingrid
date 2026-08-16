@@ -397,12 +397,12 @@ footer p { color: #858175; font-size: 8px; letter-spacing: .12em; text-transform
 .js .reveal-group > *:nth-child(4) { transition-delay: .24s; }
 .js .reveal-group > *:nth-child(5) { transition-delay: .32s; }
 
-.js .reveal-photo { opacity: 0; clip-path: inset(100% 0 0 0 round 220px 220px 20px 20px); transition: opacity .65s ease, clip-path 1.15s cubic-bezier(.2,.75,.2,1); }
-.js .classic-portrait.reveal-photo { clip-path: inset(0 0 100% 0); }
-.js .about-visual.reveal-photo { clip-path: inset(100% 0 0 0); }
-.js .reveal-photo.is-visible { opacity: 1; clip-path: inset(0 0 0 0 round 220px 220px 20px 20px); }
-.js .classic-portrait.reveal-photo.is-visible { clip-path: inset(0); }
-.js .about-visual.reveal-photo.is-visible { clip-path: inset(0); }
+/* Fotos essenciais nunca ficam escondidas caso a animação não seja iniciada. */
+.js .reveal-photo {
+  opacity: 1;
+  clip-path: none;
+  transition: opacity .65s ease, clip-path 1.15s cubic-bezier(.2,.75,.2,1);
+}
 
 .about-line { transform: scaleX(0); transform-origin: left; transition: transform .9s cubic-bezier(.2,.7,.2,1) .25s; }
 .about-content.is-visible .about-line { transform: scaleX(1); }
