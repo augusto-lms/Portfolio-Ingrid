@@ -6,6 +6,8 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "Blog",
   description: "Artigos sobre neurologia, saúde cerebral, prevenção e estilo de vida.",
+  alternates: { canonical: "/blog" },
+  openGraph: { title: "Blog | Ingrid Hovsepian", description: "Artigos sobre neurologia, saúde cerebral, prevenção e estilo de vida.", url: "/blog" },
 };
 
 export default async function BlogPage() {

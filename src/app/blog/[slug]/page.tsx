@@ -18,7 +18,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
-    openGraph: { type: "article", images: post.coverImage ? [post.coverImage] : undefined },
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.seoTitle || post.title,
+      description: post.seoDescription || post.excerpt,
+      url: `/blog/${post.slug}`,
+      publishedTime: post.publishedAt,
+      authors: ["Ingrid Hovsepian"],
+      images: post.coverImage ? [{ url: post.coverImage, alt: post.coverImageAlt || post.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.seoTitle || post.title,
+      description: post.seoDescription || post.excerpt,
+      images: post.coverImage ? [post.coverImage] : undefined,
+    },
   };
 }
 
@@ -29,8 +44,20 @@ const formatDate = (date: string) => new Intl.DateTimeFormat("pt-BR", {
 export default async function ArticlePage({ params }: PageProps) {
   const post = await getPost((await params).slug);
   if (!post) notFound();
+  const siteUrl = process.env.SITE_URL || "https://ingridhovsepian.com.br";
+  const articleData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seoDescription || post.excerpt,
+    datePublished: post.publishedAt,
+    author: { "@type": "Person", name: "Ingrid Hovsepian" },
+    mainEntityOfPage: `${siteUrl}/blog/${post.slug}`,
+    image: post.coverImage,
+  };
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleData).replace(/</g, "\\u003c") }} />
       <article className="article-page">
         <header className="article-header reveal-group">
           <Link className="article-back" href="/blog">← Todos os artigos</Link>
