@@ -70,7 +70,6 @@ export default async function ArticlePage({ params }: PageProps) {
           <aside className="article-author"><span className="monogram">IH</span><p><strong>Ingrid Hovsepian</strong><br />Médica residente em Neurologia<br />CRM/MG 92.598</p></aside>
           <ArticleBody body={post.body} />
         </div>
-        <footer className="medical-note"><strong>Informação importante</strong><p>Este conteúdo tem caráter educativo e não substitui uma consulta, diagnóstico ou orientação médica individualizada.</p></footer>
       </article>
     </main>
   );

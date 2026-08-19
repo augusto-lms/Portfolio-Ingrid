@@ -15,28 +15,31 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: schema.json
-export type BlockContent = Array<{
-  children?: Array<{
-    marks?: Array<string>;
-    text?: string;
-    _type: "span";
-    _key: string;
-  }>;
-  style?: "normal" | "h2" | "h3" | "blockquote";
-  listItem?: "bullet" | "number";
-  markDefs?: Array<{
-    href?: string;
-    _type: "link";
-    _key: string;
-  }>;
-  level?: number;
-  _type: "block";
-  _key: string;
-} | {
-  url?: string;
-  _type: "instagram";
-  _key: string;
-}>;
+export type BlockContent = Array<
+  | {
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h2" | "h3" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }
+  | {
+      url?: string;
+      _type: "instagram";
+      _key: string;
+    }
+>;
 
 export type SanityImageAssetReference = {
   _ref: string;
@@ -205,7 +208,23 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = BlockContent | SanityImageAssetReference | CategoryReference | Post | Category | Slug | SanityImageCrop | SanityImageHotspot | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes =
+  | BlockContent
+  | SanityImageAssetReference
+  | CategoryReference
+  | Post
+  | Category
+  | Slug
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityImageMetadata
+  | SanityFileAsset
+  | SanityAssetSourceData
+  | SanityImageAsset
+  | Geopoint;
 
 // Source: ../Site Ingrid/src/sanity/queries.ts
 // Variable: POSTS_QUERY
@@ -266,9 +285,8 @@ export type POST_SLUGS_QUERY_RESULT = Array<{
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n  *[_type == \"post\" && defined(slug.current)]\n  | order(publishedAt desc) {\n  _id,\n  title,\n  \"slug\": slug.current,\n  excerpt,\n  publishedAt,\n  \"category\": category->title,\n  coverImage,\n  \"coverImageAlt\": coverImage.alt,\n  body,\n  seoTitle,\n  seoDescription\n}\n": POSTS_QUERY_RESULT;
-    "\n  *[_type == \"post\" && slug.current == $slug][0] {\n  _id,\n  title,\n  \"slug\": slug.current,\n  excerpt,\n  publishedAt,\n  \"category\": category->title,\n  coverImage,\n  \"coverImageAlt\": coverImage.alt,\n  body,\n  seoTitle,\n  seoDescription\n}\n": POST_QUERY_RESULT;
-    "\n  *[_type == \"post\" && defined(slug.current)][]{\"slug\": slug.current}\n": POST_SLUGS_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)]\n  | order(publishedAt desc) {\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  publishedAt,\n  "category": category->title,\n  coverImage,\n  "coverImageAlt": coverImage.alt,\n  body,\n  seoTitle,\n  seoDescription\n}\n': POSTS_QUERY_RESULT;
+    '\n  *[_type == "post" && slug.current == $slug][0] {\n  _id,\n  title,\n  "slug": slug.current,\n  excerpt,\n  publishedAt,\n  "category": category->title,\n  coverImage,\n  "coverImageAlt": coverImage.alt,\n  body,\n  seoTitle,\n  seoDescription\n}\n': POST_QUERY_RESULT;
+    '\n  *[_type == "post" && defined(slug.current)][]{"slug": slug.current}\n': POST_SLUGS_QUERY_RESULT;
   }
 }
-

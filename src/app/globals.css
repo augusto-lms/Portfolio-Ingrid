@@ -69,9 +69,6 @@ img { max-width: 100%; }
 .instagram-block iframe { width: min(100%, 540px); height: 720px; border: 0; background: white; }
 .instagram-block p { margin: 0; text-align: center; }
 .instagram-block a { text-decoration: underline; }
-.medical-note { max-width: 650px; margin: 75px auto 0 260px; padding: 28px 32px; border: 1px solid var(--line); border-top: 3px solid var(--olive); background: rgba(231,225,212,.32); }
-.medical-note strong { color: var(--olive-dark); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
-.medical-note p { margin: 10px 0 0; color: #6d6a60; font-size: 12px; line-height: 1.65; }
 
 .not-found-page { min-height: calc(100vh - 110px); padding: 80px 6vw 100px; display: grid; grid-template-columns: minmax(260px, .8fr) minmax(420px, 1.2fr); align-items: center; gap: 7vw; overflow: hidden; }
 .not-found-number { color: rgba(137,128,95,.12); font: 400 clamp(180px, 25vw, 390px)/.72 "Newsreader", serif; letter-spacing: -.08em; user-select: none; }
@@ -87,7 +84,6 @@ img { max-width: 100%; }
   .article-layout { grid-template-columns: 1fr; gap: 35px; }
   .article-author { position: static; display: flex; gap: 15px; align-items: center; }
   .article-author .monogram { margin: 0; flex: 0 0 auto; }
-  .medical-note { margin-left: auto; margin-right: auto; }
   .not-found-page { grid-template-columns: 1fr; gap: 25px; }
   .not-found-number { font-size: clamp(150px, 40vw, 260px); }
 }
