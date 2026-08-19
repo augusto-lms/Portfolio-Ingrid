@@ -239,6 +239,36 @@ Depois da configuração inicial, Ingrid precisará apenas:
 
 Ela não precisará acessar GitHub, Vercel, código ou terminal.
 
+## 12. Excluir ou retirar um artigo do site
+
+Para apagar um artigo de teste:
+
+1. Abra **Artigos** no Studio.
+2. Abra o artigo desejado.
+3. Clique no menu de ações **⋮**, ao lado do botão **Publish**.
+4. Escolha **Delete** e confirme.
+
+A exclusão é permanente. Quando a intenção for apenas esconder o artigo e preservar o conteúdo, escolha **Unpublish**. Depois da exclusão ou despublicação, o artigo pode levar aproximadamente 60 segundos para desaparecer do site.
+
+## 13. Acesso da Ingrid ao painel
+
+No plano gratuito, Ingrid precisa ser convidada como **Administrator** para criar e publicar artigos:
+
+1. Acesse https://www.sanity.io/manage.
+2. Abra o projeto **Blog Ingrid**.
+3. Entre em **Members**.
+4. Clique em **Invite project members**.
+5. Informe o e-mail que Ingrid usará para entrar no Sanity.
+6. Selecione **Administrator** e envie o convite.
+
+Para disponibilizar o painel pela internet, execute uma vez:
+
+```bash
+npm run studio:deploy
+```
+
+Escolha um endereço disponível quando solicitado. Depois que Ingrid aceitar o convite, ela poderá entrar nesse endereço `*.sanity.studio` com a própria conta e administrar os artigos sem acessar o código.
+
 ## 12. O que cada alteração exige
 
 | Alteração | O que fazer |
